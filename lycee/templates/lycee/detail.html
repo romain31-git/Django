@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+{% load static %}
+
+{% if cur %}
+
+    {% block title %}           
+          <h3>{{cursus.name}} {{cursus.scholar_year}} </h3> 
+    {% endblock %}
+
+    {% block content %}
+<table> 
+      {% for etudiant in cur %}
+        <tr>
+          <td>
+          <ul>
+            <li> <a href="/lycee/student/{{etudiant.id}}">{{etudiant.last_name}} {{etudiant.first_name }} <br></a></li>         
+          </ul><br>
+          </td>
+        </tr>
+        
+        <br>
+        
+      {% endfor %}
+</table>      
+    {% endblock %}
+{% else %}
+     <p>No student to show.</p>
+{% endif %}
